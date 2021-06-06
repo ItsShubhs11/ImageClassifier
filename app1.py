@@ -25,7 +25,7 @@ if file_bytes:
     predictions=[]
     if submit:
         pred, pred_idx, probs = learn.predict(PILImage(img))
-	probabilities=probabilities+[probs[pred_idx]]
+	#probabilities=probabilities+
 	predictions=predictions+[pred]
     RottenCount=0
     UnripeCount=0
@@ -44,7 +44,7 @@ if file_bytes:
   	else:
     		RipeProbab=RipeProbab+[probabilities[i]]
     		RipePred=predictions[i]
-    if len(probabilities)==5:
+    if len(predictions)==5:
 	done=st.button("Done!")
     if RottenCount>=1:
   	avg=sum(RottenProbab)/len(RottenProbab)
