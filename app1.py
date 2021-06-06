@@ -44,6 +44,8 @@ if file_bytes:
   	else:
     		RipeProbab=RipeProbab+[probabilities[i]]
     		RipePred=predictions[i]
+    if len(probabilities)==5:
+	done=st.button("Done!")
     if RottenCount>=1:
   	avg=sum(RottenProbab)/len(RottenProbab)
   	pred=RottenPred
