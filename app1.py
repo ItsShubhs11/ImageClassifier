@@ -26,7 +26,7 @@ if file_bytes:
     if submit:
         pred, probs = learn.predict(PILImage(img))
 	#probabilities=probabilities+
-	predictions=predictions+[pred]
+	#predictions=predictions+[pred]
     RottenCount=0
     UnripeCount=0
     RottenProbab=[]
