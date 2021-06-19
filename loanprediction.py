@@ -25,12 +25,12 @@ def prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History):
           Credit_History = 0
     else:
         Credit_History = 1  
- 
+
     LoanAmount = LoanAmount / 1000
  
     # Making predictions 
     prediction = classifier.predict( 
-        [[Gender, Married, ApplicantIncome, LoanAmount, Credit_History]])
+        [[Gender, Married, Dependents, ApplicantIncome, LoanAmount, Credit_History]])
      
     if prediction == 0:
         pred = 'Rejected'
@@ -54,6 +54,7 @@ def main():
     # following lines create boxes in which user can enter data required to make prediction 
     Gender = st.selectbox('Gender',("Male","Female"))
     Married = st.selectbox('Marital Status',("Unmarried","Married")) 
+    Dependents = st.number_input("Number of Dependents")
     ApplicantIncome = st.number_input("Applicants monthly income") 
     LoanAmount = st.number_input("Total loan amount")
     Credit_History = st.selectbox('Credit_History',("Unclear Debts","No Unclear Debts"))
@@ -61,7 +62,7 @@ def main():
       
     # when 'Predict' is clicked, make the prediction and store it 
     if st.button("Predict"): 
-        result = prediction(Gender, Married, ApplicantIncome, LoanAmount, Credit_History) 
+        result = prediction(Gender, Married, Dependents, ApplicantIncome, LoanAmount, Credit_History) 
         st.success('Your loan is {}'.format(result))
         print(LoanAmount)
      
